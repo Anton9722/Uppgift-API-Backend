@@ -1,8 +1,12 @@
 package com.UppgiftApiBackend.UppgiftApiBackend.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.UppgiftApiBackend.UppgiftApiBackend.model.meals;
@@ -16,6 +20,16 @@ public class MealsController {
     @Autowired
     public MealsController(MealsService mealsService) {
         this.mealsService = mealsService;
+    }
+
+    @GetMapping("/meal")
+    public meals getMeal(@RequestParam Integer id) {
+        return mealsService.getMeal(id);
+    }
+
+    @GetMapping("/meals")
+    public List<meals> getAllMeals() {
+        return mealsService.getAllMeals();
     }
 
     @PostMapping("/meal")
