@@ -3,6 +3,7 @@ package com.UppgiftApiBackend.UppgiftApiBackend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +37,11 @@ public class MealsController {
     public meals addMeal(@RequestBody meals meal) {
         System.out.println("This meal was added: " + meal);
         return mealsService.addMeal(meal);
+    }
+
+    @DeleteMapping("/delete")
+    public meals deleteMeal(@RequestParam Integer id) {
+        return mealsService.deleteMeal(id);
     }
     
 }

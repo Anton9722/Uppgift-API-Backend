@@ -18,19 +18,29 @@ public class MealsService {
         this.mealsRepository = mealsRepository;
     }
 
-    //GET en specifik meal från databasen
+    //GET hämtar en specifik meal från databasen
     public meals getMeal(Integer id) {
         return mealsRepository.findById(id).orElse(null);
     }
 
-    //GET alla böcker i vår databas
+    //GET hämtar alla böcker i vår databas
     public List<meals> getAllMeals() {
         return mealsRepository.findAll();
     }
 
-    //POST en ny meal till databasen
+    //POST lägget till en ny meal till databasen
     public meals addMeal(meals meal) {
         mealsRepository.save(meal);
         return meal;
+    }
+
+    //DELETE tar bort en meal från vår databas
+    public meals deleteMeal(Integer id) {
+        meals meal = getMeal(id);
+        if(meal != null) {
+            mealsRepository.deleteById(id);
+            return meal;
+        }
+        return null;
     }
 }
