@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.UppgiftApiBackend.UppgiftApiBackend.model.meals;
 import com.UppgiftApiBackend.UppgiftApiBackend.repository.MealsRepository;
@@ -36,10 +37,22 @@ public class MealsService {
 
     //DELETE tar bort en meal från vår databas
     public meals deleteMeal(Integer id) {
-        meals meal = getMeal(id);
-        if(meal != null) {
+        meals mealToDelete = getMeal(id);
+        if(mealToDelete != null) {
             mealsRepository.deleteById(id);
-            return meal;
+            return mealToDelete;
+        }
+        return null;
+    }
+
+    //PATCH ändrar en kommentar
+    public meals changeComment(Integer id, String comment) {
+        try {
+            mealsRepository.changeComment(comment, id);
+            return getMeal(id);
+            
+        } catch (Exception e) {
+            System.out.println(e + "<-------------");
         }
         return null;
     }
