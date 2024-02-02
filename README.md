@@ -3,7 +3,5 @@ eller så kan man byta det i "application.propeties"
 
 man behöver även användare med namn "meals" och lösenord "meals" i phpmyadmin
 
-har skickat med sql dumpen för att skapa databasen
-
 inget behöver göras med frontend appen, 
 bara att kör igång i en live server när du startat mamp och spring boot api-et
