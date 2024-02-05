@@ -5,3 +5,5 @@ man behöver även användare med namn "meals" och lösenord "meals" i phpmyadmi
 
 inget behöver göras med frontend appen, 
 bara att kör igång i en live server när du startat mamp och spring boot api-et
+
+(reflektion finns med i repot9
